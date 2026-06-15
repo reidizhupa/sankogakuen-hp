@@ -37,7 +37,7 @@ export default function ShopMembers() {
     {
       name: '小宮 遥斗',
       role: '団長',
-      imageUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80',
+      imageUrl: <img src="/img/jikosyoukaisiryou6.jpg" alt="小宮 遥斗" />,
     },
     {
       name: '井田 星南',
