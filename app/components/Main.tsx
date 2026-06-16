@@ -5,26 +5,45 @@ export default function SanFesSection() {
     // 全体のコンテナ（Figma通りの 1440px × 720px）
     <section className="relative w-full max-w-[1440px] h-[720px] mx-auto overflow-hidden">
       
-      {/* 背景画像（ポップアップの白枠やイラストがすべて含まれている一枚絵） */}
+      {/* 背景画像 */}
       <Image
         src="/img/akadansiryou3.png"
         alt="赤団 背景"
         fill
         priority
-        className="object-cover bg-no-repeat"
+        className="object-cover"
       />
 
-      {/* 🌟 ボタン設置エリア（画像の中の白カードの上に絶対配置でかぶせる） */}
-      <div className="absolute inset-0 flex flex-col justify-end items-center pb-[180px]">
-        {/* 詳しくはこちらボタン */}
+      {/* ボタン */}
+      <div className="absolute inset-0">
         <a
-          href="#" // 👈 ここに飛ばしたいURLを貼ってください
-          className="px-20 py-5 bg-[#FA2D66] text-white text-sm font-bold rounded-full hover:bg-[#d61f52] shadow-md hover:shadow-lg transform hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 tracking-wider text-center margin-inline-2px"
+          href="#" // ← ここに飛ばしたいURLを入れる
+          className="
+            absolute
+            left-[47.91%]
+            top-[62.52%]
+            translate-x-[-50.1%]
+            px-20
+            py-6
+            bg-[#FA2D66]
+            text-white
+            text-sm
+            font-bold
+            rounded-2xl
+            shadow-md
+            hover:bg-[#d61f52]
+            hover:shadow-lg
+            hover:-translate-x-1/2
+            transition-all
+            duration-200
+            tracking-wider
+            text-center
+          "
         >
           詳しくはこちら
         </a>
       </div>
-      
+
     </section>
   );
 }
