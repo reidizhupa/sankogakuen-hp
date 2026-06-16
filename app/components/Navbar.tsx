@@ -14,7 +14,7 @@ export default function Navbar() {
             <Link href="/" className="flex items-center gap-3">
                 {/* Red circle logo placeholder */}
                 <span className="text-xl font-bold text-white lg:text-2xl">
-                    豹牙
+                    <img src="/img/akadansiryou6.jpg" alt="Logo" className="h-10 w-10 rounded-full" />
                 </span>
             </Link>
 
