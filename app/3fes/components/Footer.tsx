@@ -1,8 +1,11 @@
 "use client";
 
+import { useRouter } from "next/navigation"; // 1つ前に戻るために追加
 import Link from "next/link";
 
 export default function Footer() {
+  const router = useRouter(); // routerの初期化
+
   // ページの一番上までスムーズにスクロールして戻る関数
   const scrollToTop = (e) => {
     e.preventDefault();
@@ -29,7 +32,7 @@ export default function Footer() {
       style={{
         backgroundColor: "#ffffff",
         borderTop: "1px solid #e0e0e0",
-        padding: "30px 20px 20px 20px",
+        padding: "16px 20px 12px 20px", // 縦のパディングを大幅に狭く (30px/20px -> 16px/12px)
         fontFamily: "sans-serif",
       }}
     >
@@ -40,16 +43,16 @@ export default function Footer() {
           margin: "0 auto",
           display: "grid",
           gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-          gap: "24px",
-          alignItems: "flex-start",
+          gap: "16px", // 隙間を狭く (24px -> 16px)
+          alignItems: "center", // 上揃えから中央揃えにして縦幅をコンパクトに
         }}
       >
         {/* =================【左側ブロック】================= */}
-        <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-          {/* サイト名（一番左上） */}
+        <div style={{ display: "flex", flexDirection: "row", alignItems: "center", gap: "12px" }}>
+          {/* サイト名 */}
           <div
             style={{
-              fontSize: "20px",
+              fontSize: "16px", // 少し小さく (20px -> 16px)
               fontWeight: "700",
               color: "#000000",
               letterSpacing: "0.05em",
@@ -61,7 +64,7 @@ export default function Footer() {
           {/* インスタグラム */}
           <div>
             <a
-              href="components"
+              href="http://localhost:3000/components"
               target="_blank"
               rel="noopener noreferrer"
               title="Instagram"
@@ -69,8 +72,8 @@ export default function Footer() {
                 display: "inline-flex",
                 alignItems: "center",
                 justifyContent: "center",
-                width: "34px",
-                height: "34px",
+                width: "28px", // 少し小さく (34px -> 28px)
+                height: "28px",
                 borderRadius: "50%",
                 backgroundColor: "#f5f5f5",
                 transition: "background-color 0.2s",
@@ -83,8 +86,8 @@ export default function Footer() {
               }
             >
               <svg
-                width="18"
-                height="18"
+                width="14" // アイコンも少し小さく
+                height="14"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="#606060"
@@ -101,18 +104,15 @@ export default function Footer() {
         </div>
 
         {/* =================【真ん中ブロック】================= */}
-        {/* お知らせ・グッズ・お問い合わせを中央に横並び（ホバー下線付き） */}
         <div
           style={{
             display: "flex",
             flexDirection: "row",
-            gap: "24px",
+            gap: "20px", // 間隔を少し狭く
             justifyContent: "center",
             alignItems: "center",
             flexWrap: "wrap",
             fontSize: "13px",
-            height: "100%",
-            minHeight: "40px",
           }}
         >
           <Link
@@ -157,17 +157,36 @@ export default function Footer() {
         </div>
 
         {/* =================【右側ブロック】================= */}
-        {/* 右上に「トップへ戻る」、その真下に「赤団について」（ホバー下線付き） */}
         <div
           style={{
             display: "flex",
-            flexDirection: "column",
-            alignItems: "flex-end",
-            gap: "10px",
-            paddingTop: "2px",
+            flexDirection: "row", // 縦並びから横並びに変更して縦幅を削減
+            justifyContent: "flex-end",
+            alignItems: "center",
+            gap: "16px",
           }}
         >
-          {/* 右側の一番上 */}
+          {/* 1つ前に戻るボタン（赤団について） */}
+          <button
+            onClick={() => router.back()} // ここで1個前のサイトに戻る
+            style={{
+              background: "none",
+              border: "none",
+              padding: 0,
+              cursor: "pointer",
+              color: "#606060",
+              textDecoration: "none",
+              fontSize: "13px",
+              fontWeight: "500",
+              fontFamily: "sans-serif",
+              transition: "color 0.2s",
+            }}
+            onMouseEnter={(e) => handleMouseEnter(e)}
+            onMouseLeave={(e) => handleMouseLeave(e)}
+          >
+            赤団について
+          </button>
+
           <a
             href="#"
             onClick={scrollToTop}
@@ -181,24 +200,8 @@ export default function Footer() {
             onMouseEnter={(e) => handleMouseEnter(e)}
             onMouseLeave={(e) => handleMouseLeave(e)}
           >
-            トップへ戻る
+            トップへ戻る ↑
           </a>
-
-          {/* トップへ戻るのすぐ下 */}
-          <Link
-            href="/about"
-            style={{
-              color: "#606060",
-              textDecoration: "none",
-              fontSize: "13px",
-              fontWeight: "500",
-              transition: "color 0.2s",
-            }}
-            onMouseEnter={(e) => handleMouseEnter(e)}
-            onMouseLeave={(e) => handleMouseLeave(e)}
-          >
-            赤団について
-          </Link>
         </div>
       </div>
 
@@ -206,12 +209,12 @@ export default function Footer() {
       <div
         style={{
           maxWidth: "1000px",
-          margin: "30px auto 0 auto",
+          margin: "12px auto 0 auto", // 上の余白を狭く (30px -> 12px)
           textAlign: "center",
           fontSize: "11px",
           color: "#a0a0a0",
           borderTop: "1px solid #f0f0f0",
-          paddingTop: "15px",
+          paddingTop: "8px", // 上のパディングを狭く (15px -> 8px)
         }}
       >
         &copy; 2026 赤団HP. All rights reserved.

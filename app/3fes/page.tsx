@@ -5,6 +5,7 @@ import Concept from "./components/Concept";
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-neutral-900 text-white font-sans">
@@ -23,6 +24,7 @@ export default function Home() {
         <Awards />
         <GoogleMap />
         <Footer />
+       
       </div>
     </main>
   );
