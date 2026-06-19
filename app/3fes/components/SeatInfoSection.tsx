@@ -35,9 +35,6 @@ export default function SeatInfoSection() {
           <button className="bg-black text-white px-8 py-3 rounded-md font-medium text-sm hover:bg-gray-800 transition-colors shadow-sm">
             拡大マップを見る
           </button>
-          <button className="bg-[#E5E7EB] text-gray-800 px-6 py-3 rounded-md font-medium text-sm hover:bg-gray-300 transition-colors shadow-sm">
-            セカンダリボタン
-          </button>
         </div>
       </div>
 

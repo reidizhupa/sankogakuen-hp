@@ -29,7 +29,7 @@ export default function FinaleSongSection() {
         </div>
 
         <div className="flex flex-wrap gap-4 pt-2">
-          <Link 
+          <Link
             href={youtubeUrl}
             target="_blank"
             rel="noopener noreferrer"
@@ -37,13 +37,10 @@ export default function FinaleSongSection() {
           >
             曲はこちら
           </Link>
-          <button className="bg-[#E5E7EB] text-gray-800 px-6 py-3 rounded-md font-medium text-sm hover:bg-gray-300 transition-colors shadow-sm">
-            セカンダリボタン
-          </button>
         </div>
       </div>
 
-      <Link 
+      <Link
         href={youtubeUrl}
         target="_blank"
         rel="noopener noreferrer"
