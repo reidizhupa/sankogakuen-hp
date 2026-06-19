@@ -9,16 +9,17 @@ interface CompetitionItem {
   number: string;
   title: string;
   imgUrl: string;
+  objectPosition?: string;
 }
 
 const competitionList: CompetitionItem[] = [
-  { id: 1, number: "1", title: "詳しくはこちらへ", imgUrl: "/img/akadannsiryou8.png" },
-  { id: 2, number: "2", title: "詳しくはこちらへ", imgUrl: "/img/akadannsiryou8.png" },
-  { id: 3, number: "3", title: "詳しくはこちらへ", imgUrl: "/img/akadannsiryou8.png" },
-  { id: 4, number: "4", title: "詳しくはこちらへ", imgUrl: "/img/akadannsiryou8.png" },
-  { id: 5, number: "5", title: "詳しくはこちらへ", imgUrl: "/img/akadannsiryou8.png" },
-  { id: 6, number: "6", title: "詳しくはこちらへ", imgUrl: "/img/akadannsiryou8.png" },
-  { id: 7, number: "7", title: "詳しくはこちらへ", imgUrl: "/img/akadannsiryou8.png" },
+  { id: 1, number: "1", title: "詳しくはこちらへ", imgUrl: "/img/kyougi.png" },
+  { id: 2, number: "2", title: "詳しくはこちらへ", imgUrl: "/img/kyougi2.png" },
+  { id: 3, number: "3", title: "詳しくはこちらへ", imgUrl: "/img/kyougi3.png" },
+  { id: 4, number: "4", title: "詳しくはこちらへ", imgUrl: "/img/kyougi4.png", objectPosition: "top" },
+  { id: 5, number: "5", title: "詳しくはこちらへ", imgUrl: "/img/kyougi5.png", objectPosition: "top" },
+  { id: 6, number: "6", title: "詳しくはこちらへ", imgUrl: "/img/kyougi6.png" },
+  { id: 7, number: "7", title: "詳しくはこちらへ", imgUrl: "/img/kyougi7.png" },
 ];
 
 export default function Main() {
@@ -37,6 +38,7 @@ export default function Main() {
           alt={comp.title}
           fill
           className="object-cover"
+          style={{ objectPosition: comp.objectPosition ?? "center" }}
         />
       </div>
       <div className="p-3 bg-white flex flex-col gap-2">
