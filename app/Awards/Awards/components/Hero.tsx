@@ -4,12 +4,12 @@ import React from "react";
 
 export default function AwardsHero() {
   return (
-    <div className="w-full bg-gradient-to-r from-red-600 to-orange-500 text-white py-14 px-6 text-center shadow-sm">
-      <h1 className="text-3xl md:text-4xl font-black tracking-widest">
-        表彰・特別賞一覧
+    <div className="w-full text-center pt-14 pb-6 px-6 bg-gradient-to-r from-orange-500 to-amber-500">
+      <h1 className="text-2xl md:text-3xl font-black text-white tracking-wider">
+        賞について
       </h1>
-      <p className="text-sm text-red-50 mt-2">
-        三フェスで輝いた各団・個人に贈られる栄誉ある賞の紹介です！
+      <p className="text-sm text-orange-50 mt-2 font-medium">
+        表彰は全部で3つあります
       </p>
     </div>
   );
