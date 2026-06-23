@@ -66,7 +66,7 @@ export default function Navbar() {
                     ))}
                 </div>
 
-                {/* Contact CTA Button */}
+                {/* Contact CTA Butto */}
                 <Link href="/information">
                     {/* 💡 ナビが白背景の時は、ボタンを赤くして目立たせる（通常時は白ボタン） */}
                     <button
