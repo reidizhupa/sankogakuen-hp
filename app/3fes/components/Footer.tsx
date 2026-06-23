@@ -146,7 +146,7 @@ export default function Footer() {
             onMouseEnter={(e) => handleMouseEnter(e)}
             onMouseLeave={(e) => handleMouseLeave(e)}
           >
-            お知らせ
+          
           </Link>
           <Link
             href="/shop"
@@ -159,7 +159,7 @@ export default function Footer() {
             onMouseEnter={(e) => handleMouseEnter(e)}
             onMouseLeave={(e) => handleMouseLeave(e)}
           >
-            グッズ購入
+          
           </Link>
           
           {/* 💡 href を /contact から /information に変更しました */}
