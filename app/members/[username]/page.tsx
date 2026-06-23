@@ -1,55 +1,99 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 
-interface MemberSNS {
-    line: string;
-    instagram: string;
-    facebook: string;
-    tiktok: string;
-}
-
 interface MemberInfo {
     name: string;
     role: string;
-    descriptionJa: string;
-    descriptionEn: string;
+    school: string;
+    hobbies: string;
+    resolution: string;
     imageUrl: string;
-    sns: MemberSNS;
 }
 
-// 1. Your single source of truth database
+// 1. Shared Organization Social Media Links (One value for everyone)
+const SHARED_SNS = {
+    line: "https://line.me/ti/p/~your_official_line",
+    instagram: "https://instagram.com/your_official_instagram",
+    facebook: "https://facebook.com/your_official_facebook",
+    tiktok: "https://tiktok.com/@your_official_tiktok",
+};
+
+// 2. Member Database (Sleek and focused only on personal details)
 const membersData: Record<string, MemberInfo> = {
-    teppei: {
+    komiya: {
         name: "小宮 遥斗",
         role: "団長",
-        descriptionJa:
-            "記事や投稿全体の本文テキスト。ページが完成したときのイメージを示すために、ダミーテキストを挿入します。",
-        descriptionEn:
-            "Excepteur efficient emerging, minim veniam anim aute carefully curated Ginza conversation exquisite perfect nostrud nisi intricate Content. Qui international first-class nulla ut. Punctual adipisicing, essential lovely queen tempor.",
+        school: "東京リゾート＆スポーツ専門学校",
+        hobbies: "ギターを弾くこと、一発ギャグ",
+        resolution:
+            "笑いの絶えない最高の団にします！！ 史上最高の三フェスに！！！",
         imageUrl:
             "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
-        sns: {
-            line: "https://line.me/ti/p/~teppei_example",
-            instagram: "https://instagram.com/teppei_example",
-            facebook: "https://facebook.com/teppei.example",
-            tiktok: "https://tiktok.com/@teppei_example",
-        },
     },
-    lisa: {
-        name: "井田 星南",
+    arai: {
+        name: "新井 真季",
         role: "副団長",
-        descriptionJa:
-            "デザイナーとしての活動全体の本文テキスト。ここに活動理念や簡単な紹介テキストが入ります。",
-        descriptionEn:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        school: "東京ビューティー＆ブライダル専門学校",
+        hobbies: "ネイル、もつ鍋",
+        resolution: "みんながキラキラ輝ける サンフェスにします！！",
         imageUrl:
             "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
-        sns: {
-            line: "https://line.me/ti/p/~lisa_example",
-            instagram: "https://instagram.com/lisa_example",
-            facebook: "https://facebook.com/lisa.example",
-            tiktok: "https://tiktok.com/@lisa_example",
-        },
+    },
+    teppei: {
+        name: "泉 哲平",
+        role: "副団長",
+        school: "東京みらいAI&IT専門学校",
+        hobbies: "サイクリングと車の運転",
+        resolution: "優勝絶対！",
+        imageUrl:
+            "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop",
+    },
+    ida: {
+        name: "井田 星南",
+        role: "副団長",
+        school: "東京スイーツ＆カフェ専門学校",
+        hobbies: "バスケ、ドライブ",
+        resolution:
+            "勝ちにこだわって赤団と サンフェスをさいこうに盛り上げます！！",
+        imageUrl:
+            "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop",
+    },
+    takayama: {
+        name: "高山 桃悠",
+        role: "副団長",
+        school: "東京リゾート＆スポーツ専門学校",
+        hobbies: "スティッチ探し",
+        resolution: "みんなの笑顔と力を合わせて、 最高の赤団を目指します！！",
+        imageUrl:
+            "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop",
+    },
+    atumi: {
+        name: "渥美 美月",
+        role: "副団長",
+        school: "東京立川こども専門学校",
+        hobbies: "ライブに行く・マジック",
+        resolution:
+            "今までにないくらい最高の 三フェスにするために最後まで 笑顔で団を盛り上げます！！！",
+        imageUrl:
+            "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&h=400&fit=crop",
+    },
+    jyunsei: {
+        name: "井之上 準星",
+        role: "演舞リーダー",
+        school: "東京リゾート＆スポーツ専門学校",
+        hobbies: "ライブ・ギター",
+        resolution: "誰よりも熱く、誰よりも本気で挑みます。",
+        imageUrl:
+            "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop",
+    },
+    aikawa: {
+        name: "相川 心那",
+        role: "パフォーマンスリーダー",
+        school: "東京スイーツ＆カフェ専門学校",
+        hobbies: "ライブに行くこと、パッションティー",
+        resolution: "笑顔あふれる最高の三フェスに！！！！ 絶対優勝！",
+        imageUrl:
+            "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop",
     },
 };
 
@@ -66,7 +110,7 @@ export default async function MemberPage({ params }: PageProps) {
         notFound();
     }
 
-    // 2. Automatically generate the list array from the membersData keys and values
+    // Generate automated left sidebar items dynamically from data keys
     const automatedSidebarList = Object.entries(membersData).map(
         ([slug, data]) => ({
             slug,
@@ -98,8 +142,8 @@ export default async function MemberPage({ params }: PageProps) {
             {/* --- BANNER / MAIN AREA --- */}
             <div className="w-full bg-gradient-to-r from-pink-500 via-purple-500 to-orange-400 py-12 px-6 relative overflow-hidden">
                 <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-6 relative z-10">
-                    {/* Automated Left Sidebar */}
-                    <aside className="w-full md:w-52 bg-white/80 backdrop-blur-md rounded-3xl p-6 text-gray-800 flex flex-col shadow-sm">
+                    {/* Automated Sidebar */}
+                    <aside className="w-full md:w-52 bg-white/80 backdrop-blur-md rounded-3xl p-6 text-gray-800 flex flex-col shadow-sm max-h-[480px] overflow-y-auto">
                         <h2 className="text-[#4146e2] font-bold text-lg mb-4 border-b border-gray-200/50 pb-2">
                             メンバー
                         </h2>
@@ -148,12 +192,11 @@ export default async function MemberPage({ params }: PageProps) {
                                 {member.role}
                             </p>
 
-                            <div className="space-y-4 text-xs leading-relaxed text-gray-800 border-t border-gray-400/30 pt-4 max-w-xl">
-                                <p className="font-semibold underline decoration-gray-400 decoration-1 underline-offset-4">
-                                    {member.descriptionJa}
-                                </p>
-                                <p className="underline decoration-gray-400 decoration-1 underline-offset-4 text-justify">
-                                    {member.descriptionEn}
+                            <div className="space-y-3 text-xs leading-relaxed text-gray-800 border-t border-gray-400/30 pt-4 max-w-xl font-semibold">
+                                <p>【学校名】 {member.school}</p>
+                                <p>【趣味】 {member.hobbies}</p>
+                                <p className="underline decoration-gray-400 decoration-1 underline-offset-4 text-justify pt-2">
+                                    意気込み: {member.resolution}
                                 </p>
                             </div>
                         </div>
@@ -172,7 +215,7 @@ export default async function MemberPage({ params }: PageProps) {
 
             {/* --- LOWER SECTIONS --- */}
             <div className="max-w-2xl mx-auto px-6 py-16 space-y-16">
-                {/* Dynamic Social Media Section */}
+                {/* Social Media Section using SHARED_SNS constant */}
                 <section className="space-y-6">
                     <h2 className="text-xl font-bold tracking-tight text-black">
                         SNS 参加してくれたら嬉しいです。
@@ -180,7 +223,7 @@ export default async function MemberPage({ params }: PageProps) {
                     <div className="flex items-center space-x-5">
                         {/* LINE */}
                         <a
-                            href={member.sns.line}
+                            href={SHARED_SNS.line}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-black hover:text-gray-700 transition-colors"
@@ -196,7 +239,7 @@ export default async function MemberPage({ params }: PageProps) {
                         </a>
                         {/* Instagram */}
                         <a
-                            href={member.sns.instagram}
+                            href={SHARED_SNS.instagram}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-black hover:text-gray-700 transition-colors"
@@ -230,7 +273,7 @@ export default async function MemberPage({ params }: PageProps) {
                         </a>
                         {/* Facebook */}
                         <a
-                            href={member.sns.facebook}
+                            href={SHARED_SNS.facebook}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-black hover:text-gray-700 transition-colors"
@@ -246,7 +289,7 @@ export default async function MemberPage({ params }: PageProps) {
                         </a>
                         {/* TikTok */}
                         <a
-                            href={member.sns.tiktok}
+                            href={SHARED_SNS.tiktok}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-black hover:text-gray-700 transition-colors"
