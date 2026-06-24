@@ -75,7 +75,82 @@ export default function Home() {
 
                         {/* 住所リスト（省略されていた箇所をそのまま配置できるように残しています） */}
                         <div>
-                            {/* ここに住所やアクセスのテキストが入ります */}
+                            <div
+                                style={{
+                                    flex: "1 1 300px",
+                                    padding: "20px",
+                                    backgroundColor: "#f9f9f9",
+                                    borderRadius: "8px",
+                                    boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
+                                }}
+                            >
+                                <h2
+                                    style={{
+                                        fontSize: "1.5rem",
+                                        marginBottom: "15px",
+                                        color: "#333",
+                                    }}
+                                >
+                                    開催概要
+                                </h2>
+
+                                <ul
+                                    style={{
+                                        listStyle: "none",
+                                        padding: 0,
+                                        margin: 0,
+                                        lineHeight: "1.8",
+                                    }}
+                                >
+                                    <li style={{ marginBottom: "10px" }}>
+                                        <strong>イベント名:</strong>{" "}
+                                        首都圏三幸フェスティバル
+                                    </li>
+                                    <li style={{ marginBottom: "10px" }}>
+                                        <strong>日程:</strong>
+                                        <span
+                                            style={{
+                                                display: "block",
+                                                paddingLeft: "15px",
+                                            }}
+                                        >
+                                            ・2026年9月14日(月)
+                                            会場設営・リハーサル
+                                        </span>
+                                        <span
+                                            style={{
+                                                display: "block",
+                                                paddingLeft: "15px",
+                                            }}
+                                        >
+                                            ・2026年9月15日(火) 本番
+                                        </span>
+                                    </li>
+                                    <li style={{ marginBottom: "10px" }}>
+                                        <strong>赤団スローガン:</strong>{" "}
+                                        笑顔・元気・メリハリ
+                                    </li>
+                                </ul>
+
+                                <div style={{ marginTop: "20px" }}>
+                                    <a
+                                        href="https://maps.google.com/maps?ll=35.670065,139.694966&z=16&t=m&hl=ja&gl=JP&mapclient=embed&cid=3800131593595043646"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        style={{
+                                            display: "inline-block",
+                                            padding: "10px 20px",
+                                            backgroundColor: "#d32f2f", // 赤団カラー
+                                            color: "#fff",
+                                            textDecoration: "none",
+                                            borderRadius: "4px",
+                                            fontWeight: "bold",
+                                        }}
+                                    >
+                                        Googleマップで開く
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
