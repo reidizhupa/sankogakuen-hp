@@ -166,7 +166,7 @@ export default function Footer() {
 
           {/* 💡 href を /contact から /information に変更しました */}
           <Link
-            href="./information"
+            href="./Information"
             style={{
               color: "#606060",
               textDecoration: "none",
