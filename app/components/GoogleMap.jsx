@@ -1,6 +1,6 @@
 'use client';
 
-export default function GoogleMapWithDetails() {
+export default function GoogleMap() {
   return (
     <div style={{ 
       display: 'flex', 
