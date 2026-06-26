@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 
 // Target date: September 15, 10:00 AM JST
-// ISO string with JST offset (+09:00)
 const TARGET_DATE = new Date("2026-09-15T10:00:00+09:00").getTime();
 
 interface TimeLeft {
@@ -34,14 +33,12 @@ export default function Countdown() {
             });
         };
 
-        // Calculate immediately on mount, then interval kicks in
         calculateTimeLeft();
         const timer = setInterval(calculateTimeLeft, 1000);
 
         return () => clearInterval(timer);
     }, []);
 
-    // Return nothing until the client has mounted to prevent hydration errors.
     if (!timeLeft) {
         return null;
     }
@@ -54,7 +51,13 @@ export default function Countdown() {
     ];
 
     return (
-        <div className="fixed bottom-4 right-4 z-50 flex flex-col items-center p-4 bg-white/95 border border-slate-200 rounded-2xl shadow-xl backdrop-blur-sm max-w-[280px] sm:max-w-xs animate-fade-in-up">
+        /* 
+          【調整ポイント】
+          - z-40 に下げることで、もしフッターに z-50 が指定されていればフッターの下に入り込みます。
+          - bottom-4 から bottom-6 に少し上げてフッターの境界線との余白を確保。
+          - ユーザーが指定した左下表示に変更したい場合は「right-4」を「left-4」に変えてください。
+        */
+        <div className="fixed bottom-6 right-4 z-40 flex flex-col items-center p-4 bg-white/95 border border-slate-200 rounded-2xl shadow-xl backdrop-blur-sm max-w-[280px] sm:max-w-xs animate-fade-in-up">
             <div className="text-[10px] uppercase tracking-wider text-slate-600 font-bold mb-2.5 flex items-center gap-1.5">
                 <span className="flex h-2 w-2 relative">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
