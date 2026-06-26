@@ -53,10 +53,10 @@ export default function Home() {
             <GoogleMap />
           </ScrollReveal>
         </div>
-        <Countdown />
-        
-        {/* <Footer /> */}
+
       </div>
+      <Countdown />
+      <Footer />
     </main>
   );
 }
