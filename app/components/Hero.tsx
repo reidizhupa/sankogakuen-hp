@@ -50,14 +50,14 @@ export default function Hero({
             className={`${yujiSyuku.className} text-7xl font-extrabold tracking-tight text-red-600 sm:text-8xl md:text-9xl lg:text-[140px] block md:hidden`}
             style={{ paddingBottom: "50px", paddingLeft: "7px" }}
           >
-            赤団
+            豹牙
           </h1>
           {/* PC用 */}
           <h1
             className={`${yujiSyuku.className} text-7xl font-extrabold tracking-tight text-red-600 sm:text-8xl md:text-9xl lg:text-[140px] hidden md:block`}
             style={{ paddingBottom: "150px", paddingLeft: "65px" }}
           >
-            赤団
+            豹牙
           </h1>
         </div>
       </div>
