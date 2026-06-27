@@ -4,7 +4,7 @@ import React from "react";
 import Hero from "./Components/Hero";
 import Main from "./Components/Main";
 import Navbar from "../components/Navbar";
-import Countdown from "../components/Countdown";
+import Countdown from "./Components/Countdown";
 import Footer from "../3fes/components/Footer";
 
 export default function CompetitionsListPage() {
@@ -14,7 +14,7 @@ export default function CompetitionsListPage() {
       <div className="mt-8" />
       <Navbar />
       <Main />
-      <Countdown />
+      <Countdown footerId="main-footer" />
       <Footer />
     </main>
   );
