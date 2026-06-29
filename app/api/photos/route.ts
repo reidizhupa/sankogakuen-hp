@@ -15,7 +15,8 @@ export async function GET(request: NextRequest) {
 
     try {
         const response = await cloudinary.search
-            .expression("resource_type:image")
+            // Added "NOT format:heic" to filter out HEIC images at the API level
+            .expression("resource_type:image NOT format:heic")
             // Sort by oldest first or newest first, but keep it STRICTLY consistent
             .sort_by("created_at", "desc")
             .max_results(40) // Load 40 images per batch
