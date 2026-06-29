@@ -9,8 +9,16 @@ const nextConfig: NextConfig = {
                 protocol: "https",
                 hostname: "sankogakuen-hp.vercel.app",
             },
+
+            {
+                protocol: "https",
+                hostname: "res.cloudinary.com",
+                port: "",
+                pathname: "/**",
+            },
         ],
     },
+
     async headers() {
         return [
             {

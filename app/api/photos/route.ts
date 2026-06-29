@@ -1,34 +1,38 @@
-import { NextResponse } from "next/server";
-import fs from "fs";
-import path from "path";
+import { NextResponse, NextRequest } from "next/server";
+import { v2 as cloudinary } from "cloudinary";
 
-export async function GET() {
-  // public/memories フォルダの絶対パスを取得
-  const dirPath = path.join(process.cwd(), "public/memories");
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET,
+    secure: true,
+});
 
-  try {
-    // フォルダ内のファイル名一覧を読み込む
-    const files = fs.readdirSync(dirPath);
+export async function GET(request: NextRequest) {
+    // Get the next_cursor token from the frontend URL query parameters
+    const { searchParams } = new URL(request.url);
+    const cursor = searchParams.get("cursor") || undefined;
 
-    // 画像ファイル（jpg, jpeg, png, webpなど）だけをフィルター
-    const imageExtensions = [
-      ".jpg",
-      ".jpeg",
-      ".png",
-      ".webp",
-      ".GIF",
-      ".JPG",
-      ".PNG",
-    ];
-    const photoUrls = files
-      .filter((file) => imageExtensions.includes(path.extname(file)))
-      .map((file) => `/memories/${file}`); // フロントで使えるパスに変換
+    try {
+        const response = await cloudinary.search
+            .expression("resource_type:image")
+            // Sort by oldest first or newest first, but keep it STRICTLY consistent
+            .sort_by("created_at", "desc")
+            .max_results(40) // Load 40 images per batch
+            .next_cursor(cursor)
+            .execute();
 
-    return NextResponse.json(photoUrls);
-  } catch (error) {
-    return NextResponse.json(
-      { error: "フォルダが読み込めませんでした" },
-      { status: 500 },
-    );
-  }
+        const urls = response.resources.map((res: any) => res.secure_url);
+
+        return NextResponse.json({
+            photos: urls,
+            nextCursor: response.next_cursor || null, // Send back the next token
+        });
+    } catch (error) {
+        console.error("Cloudinary Fetch Error:", error);
+        return NextResponse.json(
+            { error: "Failed to fetch images from Cloudinary" },
+            { status: 500 },
+        );
+    }
 }
