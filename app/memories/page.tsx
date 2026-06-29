@@ -80,7 +80,7 @@ export default function MemoriesPage() {
           <p className="text-center text-gray-400 py-20">画像がありません...</p>
         )}
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+        <div className="columns-2 sm:columns-3 md:columns-4 gap-4">
           {photos.map((url, index) => (
             <PhotoItem key={url + index} url={url} index={index} />
           ))}
@@ -104,14 +104,24 @@ export default function MemoriesPage() {
 }
 
 function PhotoItem({ url, index }: { url: string; index: number }) {
+  const [aspect, setAspect] = useState("aspect-[4/3]");
+
   return (
-    <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-sm hover:scale-[1.02] transition-transform bg-gray-200 w-full">
+    <div className={`relative ${aspect} rounded-xl overflow-hidden shadow-sm hover:scale-[1.02] transition-transform bg-gray-200 w-full mb-4 break-inside-avoid`}>
       <Image
         src={url}
         alt={`思い出の写真 ${index + 1}`}
         fill
         className="object-cover"
         sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
+        onLoad={(e) => {
+          const img = e.target as HTMLImageElement;
+          if (img.naturalHeight > img.naturalWidth) {
+            setAspect("aspect-[3/4]");
+          } else {
+            setAspect("aspect-[4/3]");
+          }
+        }}
       />
     </div>
   );
