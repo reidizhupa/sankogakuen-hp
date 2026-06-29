@@ -4,7 +4,8 @@ import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 // 1. ここでNavbarコンポーネントをインポートします（パスはご自身の環境に合わせて調整してください）
-import Navbar from "../components/Navbar"; 
+import Navbar from "../components/Navbar";
+import Countdown from "../components/Countdown";
 
 export default function MemoriesPage() {
     const [photos, setPhotos] = useState<string[]>([]);
@@ -105,17 +106,7 @@ export default function MemoriesPage() {
             </main>
 
             {/* Footer */}
-            <footer className="text-center py-12 bg-white border-t border-gray-100">
-                <Link
-                    href="/"
-                    className="inline-block text-gray-500 text-sm mb-4 hover:text-[#ff5a60]"
-                >
-                    ← トップページへ戻る
-                </Link>
-                <p className="m-0 text-xs text-gray-400">
-                    © 2026 赤団HP. All rights reserved.
-                </p>
-            </footer>
+            <Countdown footerId="page-footer" />
         </div>
     );
 }
