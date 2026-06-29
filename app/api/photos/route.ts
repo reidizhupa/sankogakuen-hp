@@ -9,25 +9,32 @@ cloudinary.config({
 });
 
 export async function GET(request: NextRequest) {
-    // Get the next_cursor token from the frontend URL query parameters
     const { searchParams } = new URL(request.url);
     const cursor = searchParams.get("cursor") || undefined;
 
     try {
         const response = await cloudinary.search
-            // Added "NOT format:heic" to filter out HEIC images at the API level
-            .expression("resource_type:image NOT format:heic")
-            // Sort by oldest first or newest first, but keep it STRICTLY consistent
+            // 1. Removed "NOT format:heic" so HEIC files are included
+            .expression("resource_type:image")
             .sort_by("created_at", "desc")
-            .max_results(40) // Load 40 images per batch
+            .max_results(40)
             .next_cursor(cursor)
             .execute();
 
-        const urls = response.resources.map((res: any) => res.secure_url);
+        // 2. Map through resources and apply format auto transformation
+        const urls = response.resources.map((res: any) => {
+            // If it's a HEIC, we use Cloudinary's URL generator to force auto-formatting
+            // This converts it to WebP/AVIF dynamically for Chrome users.
+            return cloudinary.url(res.public_id, {
+                secure: true,
+                fetch_format: "auto",
+                quality: "auto", // Optional: optimizes file size too!
+            });
+        });
 
         return NextResponse.json({
             photos: urls,
-            nextCursor: response.next_cursor || null, // Send back the next token
+            nextCursor: response.next_cursor || null,
         });
     } catch (error) {
         console.error("Cloudinary Fetch Error:", error);
