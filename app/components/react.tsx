@@ -24,12 +24,12 @@ export default function AkadanPage() {
         >
           {/* スローガン（上部の赤筆ストロークの下の余白帯） */}
           <p
-            className="absolute text-red-900 font-bold"
+            className="absolute text-red-900 font-black"
             style={{
-              top: "7%",
+              top: "11%",
               left: "50%",
               transform: "translateX(-50%)",
-              fontSize: "clamp(16px, 1.5vw, 26px)",
+              fontSize: "clamp(20px, 2vw, 34px)",
               letterSpacing: "0.65em",
               whiteSpace: "nowrap",
               textIndent: "0.65em",
@@ -47,7 +47,7 @@ export default function AkadanPage() {
               top: "23%",
               left: "50%",
               transform: "translateX(-50%)",
-              fontSize: "clamp(34px, 3.6vw, 58px)",
+              fontSize: "clamp(44px, 4.6vw, 74px)",
               letterSpacing: "0.32em",
               textIndent: "0.32em",
               whiteSpace: "nowrap",
@@ -61,12 +61,12 @@ export default function AkadanPage() {
 
           {/* 3箇条 ラベル（黄色ストロークのすぐ下、見出しとして少し大きめ） */}
           <p
-            className="absolute text-[#3b2a1a] font-extrabold"
+            className="absolute text-[#3b2a1a] font-black"
             style={{
-              top: "37.5%",
+              top: "38.5%",
               left: "50%",
               transform: "translateX(-50%)",
-              fontSize: "clamp(20px, 2.1vw, 34px)",
+              fontSize: "clamp(26px, 2.7vw, 44px)",
               letterSpacing: "0.5em",
               textIndent: "0.5em",
               whiteSpace: "nowrap",
@@ -80,7 +80,7 @@ export default function AkadanPage() {
           <div
             className="absolute bg-[#8a1010]/70"
             style={{
-              top: "44.5%",
+              top: "46%",
               left: "50%",
               transform: "translateX(-50%)",
               width: "5%",
@@ -92,7 +92,7 @@ export default function AkadanPage() {
           <div
             className="absolute flex flex-col items-center text-center"
             style={{
-              top: "48%",
+              top: "53%",
               left: "10%",
               transform: "translateX(-50%)",
               width: "27%",
@@ -141,7 +141,7 @@ export default function AkadanPage() {
           <div
             className="absolute flex flex-col items-center text-center"
             style={{
-              top: "48%",
+              top: "53%",
               left: "50%",
               transform: "translateX(-50%)",
               width: "27%",
@@ -190,7 +190,7 @@ export default function AkadanPage() {
           <div
             className="absolute flex flex-col items-center text-center"
             style={{
-              top: "48%",
+              top: "53%",
               left: "89.5%",
               transform: "translateX(-50%)",
               width: "27%",
@@ -239,7 +239,7 @@ export default function AkadanPage() {
           <p
             className="absolute font-extrabold text-[#fdf3dc]"
             style={{
-              top: "67%",
+              top: "70%",
               left: "50%",
               transform: "translateX(-50%)",
               fontSize: "clamp(16px, 1.55vw, 25px)",
