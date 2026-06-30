@@ -5,11 +5,11 @@ import Countdown from "@/app/components/Countdown";
 
 export default function SchedulePage() {
   return (
-    // 全体を画面の真ん中に集める設定はキープします
-    <main className="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-4 space-y-6">
+    // 💡 justify-center から justify-start に変更し、上詰めにしました！
+    <main className="min-h-screen bg-gray-50 flex flex-col items-center justify-start p-4 md:p-8 space-y-6">
       
-      {/* ⏰ カウントダウン（footerId="footer" を追加してエラーを解決しました！） */}
-      <div className="w-full max-w-7xl flex flex-col items-stretch">
+      {/* ⏰ カウントダウン（画面の一番上に横いっぱいに広げる） */}
+      <div className="w-full max-w-4xl flex flex-col items-stretch">
         <Countdown footerId="footer" />
       </div>
       
