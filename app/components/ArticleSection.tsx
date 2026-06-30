@@ -135,22 +135,18 @@ export default function ShopMembers() {
           </ul>
         </div>
 
-        {/* 📝 スケジュール（修正箇所） */}
-        {/* 📝 スケジュール */}
+        {/* 🕰️ 当日スケジュール */}
         <div className="flex flex-col items-center space-y-4">
-          {/* ここにあった戻るボタンは削除しました！ */}
-
-          {/* リンク先を画像ファイルではなく、新しく作るページ「/schedule」にします */}
           <Link
             href="/schedule"
             className="group block w-full hover:opacity-80 transition-opacity no-underline"
           >
             <div className="space-y-2 flex flex-col items-center">
-              <h4 className="font-bold text-sm text-gray-900 border-l-4 border-red-600 pl-3 group-hover:underline decoration-gray-900">
+              <h4 className="font-bold text-sm text-gray-900 border-l-4 border-red-600 pl-3 group-hover:underline decoration-red-600 group-hover:text-red-600 transition-colors">
                 🕰️ 当日スケジュール
               </h4>
               <p className="text-gray-500 text-xs leading-relaxed no-underline">
-                提案したい内容を自由に書く本文テキスト。
+                当日の詳細なタイムスケジュール（時間割）はこちらからご確認いただけます。
               </p>
             </div>
           </Link>
