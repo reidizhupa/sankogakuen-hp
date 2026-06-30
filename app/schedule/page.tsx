@@ -1,38 +1,24 @@
-"use client"; // 戻るボタンの動き（onClick）を使うために必須です
+import Link from "next/link"; // 💡 ファイルの上のほうで一度だけインポートしてください
 
-// 💡 Countdownコンポーネントをインポート
-import Countdown from "@/app/components/Countdown";
+// 〜（中略：他のメンバー紹介などのコード）〜
 
-export default function SchedulePage() {
-    return (
-        // 全体を画面の真ん中に集める設定はキープします
-        <main className="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-4 space-y-6">
-            {/* ⏰ カウントダウン（外枠の縮める力を強制的に解除！） */}
-            <div className="w-full max-w-7xl flex flex-col items-stretch">
-                <Countdown footerId={""} />
-            </div>
-
-            {/* 🖼️ 画像とボタンをまとめる箱 */}
-            <div className="max-w-4xl w-full space-y-4">
-                {/* 画像本体 */}
-                <div className="bg-white p-4 rounded-xl shadow-md border border-gray-100 flex justify-center">
-                    <img
-                        src="/img/jikanwari.png"
-                        alt="当日スケジュール時間割"
-                        className="max-w-full h-auto rounded"
-                    />
-                </div>
-
-                {/* 🔙 戻るボタン（画像のすぐ下・右側をキープ） */}
-                <div style={{ width: "100%", textAlign: "right" }}>
-                    <button
-                        onClick={() => window.history.back()}
-                        className="inline-flex items-center gap-2 px-6 py-2.5 text-sm font-semibold text-gray-700 bg-white hover:bg-gray-100 rounded-lg shadow-sm border border-gray-200 transition-all cursor-pointer"
-                    >
-                        ← 戻る
-                    </button>
-                </div>
-            </div>
-        </main>
-    );
-}
+{/* 🕰️ 【修正箇所】当日スケジュール部分をこれに置き換えます */}
+<Link 
+  href="/schedule" 
+  className="block p-6 bg-white rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-all group cursor-pointer"
+>
+  <div className="flex items-center gap-2 mb-2">
+    {/* 赤団のテーマカラーに合わせて、左側に赤いアクセント線を入れます */}
+    <span className="w-1 h-5 bg-red-600 rounded-full inline-block"></span>
+    <span className="text-xl">🕰️</span>
+    <h3 className="text-sm font-bold text-gray-800 group-hover:text-red-600 transition-colors">
+      当日スケジュール
+    </h3>
+  </div>
+  <p className="text-xs text-gray-500 leading-relaxed pl-3">
+    当日のタイムスケジュール（時間割）の詳細はこちらからご確認いただけます。
+  </p>
+  <div className="mt-4 pl-3 text-xs font-semibold text-red-500 group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+    詳細を見る →
+  </div>
+</Link>
