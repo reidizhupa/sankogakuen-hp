@@ -46,7 +46,11 @@ export default function SanFesSection() {
           {/* 💡 「三フェス」のすぐ下（PC版なら左側エリアの下部）に説明文を配置 */}
           <div className="mt-6 max-w-[550px]">
             <p className="text-gray-200 text-base md:text-lg font-medium leading-relaxed tracking-wide drop-shadow">
-              リゾスポ生が姉妹校と力を合わせてつくり上げる最大のイベント。助け合い、励まし合い、時にはうまくいかないことも・・・。いくつもの困難を乗り越えて得られる感動は、一生の思い出として胸に刻めます。
+              リゾスポ生が姉妹校と力を合わせてつくり上げる最大のイベント。
+              <br />
+              助け合い、励まし合い、時にはうまくいかないことも・・・。
+              <br />
+              いくつもの困難を乗り越えて得られる感動は、一生の思い出として胸に刻めます。
             </p>
           </div>
         </div>
