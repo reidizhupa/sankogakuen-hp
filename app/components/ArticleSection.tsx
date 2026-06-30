@@ -136,25 +136,25 @@ export default function ShopMembers() {
         </div>
 
         {/* 📝 スケジュール（修正箇所） */}
-       {/* 📝 スケジュール */}
-<div className="flex flex-col items-center space-y-4">
-  {/* ここにあった戻るボタンは削除しました！ */}
+        {/* 📝 スケジュール */}
+        <div className="flex flex-col items-center space-y-4">
+          {/* ここにあった戻るボタンは削除しました！ */}
 
-  {/* リンク先を画像ファイルではなく、新しく作るページ「/schedule」にします */}
-  <Link
-    href="/schedule"
-    className="group block w-full hover:opacity-80 transition-opacity no-underline"
-  >
-    <div className="space-y-2 flex flex-col items-center">
-      <h4 className="font-bold text-sm text-gray-900 border-l-4 border-red-600 pl-3 group-hover:underline decoration-gray-900">
-        🕰️ 当日スケジュール
-      </h4>
-      <p className="text-gray-500 text-xs leading-relaxed no-underline">
-        提案したい内容を自由に書く本文テキスト。
-      </p>
-    </div>
-  </Link>
-</div>
+          {/* リンク先を画像ファイルではなく、新しく作るページ「/schedule」にします */}
+          <Link
+            href="/schedule"
+            className="group block w-full hover:opacity-80 transition-opacity no-underline"
+          >
+            <div className="space-y-2 flex flex-col items-center">
+              <h4 className="font-bold text-sm text-gray-900 border-l-4 border-red-600 pl-3 group-hover:underline decoration-gray-900">
+                🕰️ 当日スケジュール
+              </h4>
+              <p className="text-gray-500 text-xs leading-relaxed no-underline">
+                提案したい内容を自由に書く本文テキスト。
+              </p>
+            </div>
+          </Link>
+        </div>
 
         {/* 🔒 サブ見出し */}
         <div className="space-y-2 flex flex-col items-center">
