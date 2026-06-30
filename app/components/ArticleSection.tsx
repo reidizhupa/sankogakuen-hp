@@ -134,11 +134,10 @@ export default function ShopMembers() {
             <li>アゲホイ</li>
           </ul>
         </div>
-
         {/* 🕰️ 当日スケジュール */}
         <div className="flex flex-col items-center space-y-4">
           <Link href="/schedule" className="group block w-full no-underline">
-            <div className="space-y-3 flex flex-col items-center rounded-xl border border-gray-200 p-4 transition-all hover:border-red-300 hover:shadow-md">
+            <div className="space-y-2 flex flex-col items-center">
               <h4 className="font-bold text-sm text-gray-900 border-l-4 border-red-600 pl-3 group-hover:text-red-600 transition-colors">
                 🕰️ 当日スケジュール
               </h4>
@@ -164,7 +163,6 @@ export default function ShopMembers() {
             </div>
           </Link>
         </div>
-
         {/* 🔒 サブ見出し */}
         <div className="space-y-2 flex flex-col items-center">
           <h4 className="font-bold text-sm text-gray-900 border-l-4 border-red-600 pl-3">
@@ -174,7 +172,6 @@ export default function ShopMembers() {
             主導したいことを自由に書く本文テキスト。
           </p>
         </div>
-
         {/* 📅 日付 */}
         <div className="space-y-2 flex flex-col items-center">
           <h4 className="font-bold text-sm text-gray-900 border-l-4 border-red-600 pl-3">
