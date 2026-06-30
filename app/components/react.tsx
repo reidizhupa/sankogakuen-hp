@@ -3,110 +3,108 @@ import Image from "next/image";
 
 export default function AkadanPage() {
   return (
-    <div className="relative w-full h-screen bg-black overflow-hidden font-sans">
-      {/* PC版 */}
-      <div className="hidden md:block relative w-full h-full">
+    // 外側のコンテナ：背景が黒、もしくは全体のバランスを取るためのラッパー
+    <div className="w-full min-h-screen bg-[#f1e6cc] flex items-center justify-center overflow-hidden font-sans">
+      
+      {/* =================================================================
+          PC版 (md以上)
+          背景画像の縦横比（例として 16:11 や 4:3 などの固定アスペクト比コンテナ）を維持
+          ================================================================= */}
+      <div className="hidden md:block relative w-full max-w-[1200px] aspect-[16/11] mx-auto select-none">
+        {/* 背景画像：コンテナのサイズに100%追従させる */}
         <Image
           src="/img/hyouga.png"
           alt="赤団 豹牙"
           fill
           priority
-          className="object-cover object-center z-10"
+          className="object-contain z-10"
         />
 
-        {/* PC版 文字オーバーレイ（背景画像の表示領域＝画面いっぱいに合わせて絶対配置） */}
+        {/* 文字オーバーレイ：フォント指定と配置 */}
         <div
           className="absolute inset-0 z-20 pointer-events-none"
           style={{
-            fontFamily:
-              "'Shippori Mincho', 'Zen Antique', 'Noto Serif JP', serif",
+            fontFamily: "'Shippori Mincho', 'Zen Antique', 'Noto Serif JP', serif",
           }}
         >
-          {/* スローガン（上部の赤筆ストロークの下の余白帯） */}
+          {/* スローガン */}
           <p
-            className="absolute text-red-900 font-black"
+            className="absolute text-red-900 font-black text-center"
             style={{
-              top: "6%",
+              top: "16%", /* 実際のHPの赤文字の位置に合わせて微調整 */
               left: "50%",
-              transform: "translateX(-50%)",
-              fontSize: "clamp(20px, 2vw, 34px)",
+              transform: "translate(-50%, -50%)",
+              fontSize: "clamp(16px, 2.2vw, 32px)",
               letterSpacing: "0.65em",
               whiteSpace: "nowrap",
               textIndent: "0.65em",
-              textShadow:
-                "0 1px 0 rgba(255,255,255,0.5), 0 2px 4px rgba(0,0,0,0.15)",
             }}
           >
             スローガン
           </p>
 
-          {/* 和気藹々 大見出し（3つの赤丸の真ん中、赤丸と黄色ストロークの間の余白） */}
+          {/* 和気藹々 大見出し */}
           <h1
-            className="absolute text-[#8a1010] font-black"
+            className="absolute text-[#8a1010] font-black text-center"
             style={{
-              top: "18%",
+              top: "32%", /* 中央の赤丸の真上・黄色ストロークの間 */
               left: "50%",
-              transform: "translateX(-50%)",
-              fontSize: "clamp(44px, 4.6vw, 74px)",
+              transform: "translate(-50%, -50%)",
+              fontSize: "clamp(36px, 5.2vw, 76px)",
               letterSpacing: "0.32em",
               textIndent: "0.32em",
               whiteSpace: "nowrap",
               lineHeight: 1,
-              textShadow:
-                "0 2px 0 rgba(255,255,255,0.35), 0 4px 10px rgba(0,0,0,0.25)",
             }}
           >
             和気藹々
           </h1>
 
-          {/* 3箇条 ラベル（黄色ストロークのすぐ下、見出しとして少し大きめ） */}
+          {/* 3箇条 ラベル */}
           <p
-            className="absolute text-[#3b2a1a] font-black"
+            className="absolute text-[#3b2a1a] font-black text-center"
             style={{
-              top: "33.5%",
+              top: "47%",
               left: "50%",
-              transform: "translateX(-50%)",
-              fontSize: "clamp(26px, 2.7vw, 44px)",
+              transform: "translate(-50%, -50%)",
+              fontSize: "clamp(22px, 3vw, 42px)",
               letterSpacing: "0.5em",
               textIndent: "0.5em",
               whiteSpace: "nowrap",
-              textShadow: "0 1px 2px rgba(255,255,255,0.4)",
             }}
           >
             3箇条
           </p>
 
-          {/* 区切り線（3箇条の下に細い飾り線） */}
+          {/* 区切り線（3箇条の下のライン） */}
           <div
             className="absolute bg-[#8a1010]/70"
             style={{
-              top: "41%",
+              top: "52%",
               left: "50%",
               transform: "translateX(-50%)",
-              width: "5%",
+              width: "4%",
               height: "2px",
             }}
           />
 
-          {/* ①笑顔（左の赤丸の真下） */}
+          {/* ①笑顔（左の赤丸の下） */}
           <div
             className="absolute flex flex-col items-center text-center"
             style={{
-              top: "53%",
-              left: "10%",
+              top: "66%",
+              left: "11%", /* 実際のHP画像内の左赤丸の位置 */
               transform: "translateX(-50%)",
-              width: "27%",
+              width: "24%",
             }}
           >
-            <div className="flex items-center justify-center gap-[10px]">
+            <div className="flex items-center justify-center gap-[8px]">
               <span
-                className="flex items-center justify-center rounded-full bg-[#8a1010] text-white font-black border-2 border-white/90"
+                className="flex items-center justify-center rounded-full bg-[#8a1010] text-white font-black border border-white/90"
                 style={{
-                  width: "clamp(28px, 2.6vw, 42px)",
-                  height: "clamp(28px, 2.6vw, 42px)",
-                  fontSize: "clamp(15px, 1.4vw, 22px)",
-                  boxShadow:
-                    "0 2px 5px rgba(0,0,0,0.35), inset 0 1px 1px rgba(255,255,255,0.3)",
+                  width: "clamp(24px, 2.8vw, 38px)",
+                  height: "clamp(24px, 2.8vw, 38px)",
+                  fontSize: "clamp(13px, 1.5vw, 20px)",
                 }}
               >
                 1
@@ -114,7 +112,7 @@ export default function AkadanPage() {
               <span
                 className="text-[#241a10] font-extrabold"
                 style={{
-                  fontSize: "clamp(19px, 1.85vw, 30px)",
+                  fontSize: "clamp(18px, 2vw, 28px)",
                   letterSpacing: "0.22em",
                   textIndent: "0.22em",
                 }}
@@ -123,10 +121,9 @@ export default function AkadanPage() {
               </span>
             </div>
             <p
-              className="mt-[10px] text-[#3a2c1d] font-medium leading-[1.85]"
+              className="mt-[8px] text-[#3a2c1d] font-medium leading-[1.7]"
               style={{
-                fontSize: "clamp(11px, 0.95vw, 16px)",
-                letterSpacing: "0.04em",
+                fontSize: "clamp(10px, 1.1vw, 15px)",
               }}
             >
               仲間とたくさん笑い合い、
@@ -137,25 +134,23 @@ export default function AkadanPage() {
             </p>
           </div>
 
-          {/* ②元気（中央の赤丸の真下） */}
+          {/* ②元気（中央の赤丸の下） */}
           <div
             className="absolute flex flex-col items-center text-center"
             style={{
-              top: "53%",
+              top: "66%",
               left: "50%",
               transform: "translateX(-50%)",
-              width: "27%",
+              width: "24%",
             }}
           >
-            <div className="flex items-center justify-center gap-[10px]">
+            <div className="flex items-center justify-center gap-[8px]">
               <span
-                className="flex items-center justify-center rounded-full bg-[#8a1010] text-white font-black border-2 border-white/90"
+                className="flex items-center justify-center rounded-full bg-[#8a1010] text-white font-black border border-white/90"
                 style={{
-                  width: "clamp(28px, 2.6vw, 42px)",
-                  height: "clamp(28px, 2.6vw, 42px)",
-                  fontSize: "clamp(15px, 1.4vw, 22px)",
-                  boxShadow:
-                    "0 2px 5px rgba(0,0,0,0.35), inset 0 1px 1px rgba(255,255,255,0.3)",
+                  width: "clamp(24px, 2.8vw, 38px)",
+                  height: "clamp(24px, 2.8vw, 38px)",
+                  fontSize: "clamp(13px, 1.5vw, 20px)",
                 }}
               >
                 2
@@ -163,7 +158,7 @@ export default function AkadanPage() {
               <span
                 className="text-[#241a10] font-extrabold"
                 style={{
-                  fontSize: "clamp(19px, 1.85vw, 30px)",
+                  fontSize: "clamp(18px, 2vw, 28px)",
                   letterSpacing: "0.22em",
                   textIndent: "0.22em",
                 }}
@@ -172,10 +167,9 @@ export default function AkadanPage() {
               </span>
             </div>
             <p
-              className="mt-[10px] text-[#3a2c1d] font-medium leading-[1.85]"
+              className="mt-[8px] text-[#3a2c1d] font-medium leading-[1.7]"
               style={{
-                fontSize: "clamp(11px, 0.95vw, 16px)",
-                letterSpacing: "0.04em",
+                fontSize: "clamp(10px, 1.1vw, 15px)",
               }}
             >
               大きな声・全力の応援！
@@ -186,25 +180,23 @@ export default function AkadanPage() {
             </p>
           </div>
 
-          {/* ③メリハリ（右の赤丸の真下、豹の爪の範囲を避けてやや左寄り） */}
+          {/* ③メリハリ（右の赤丸の下） */}
           <div
             className="absolute flex flex-col items-center text-center"
             style={{
-              top: "53%",
-              left: "89.5%",
+              top: "66%",
+              left: "89%", /* 豹の爪やデザインを避けた右位置 */
               transform: "translateX(-50%)",
-              width: "27%",
+              width: "24%",
             }}
           >
-            <div className="flex items-center justify-center gap-[10px]">
+            <div className="flex items-center justify-center gap-[8px]">
               <span
-                className="flex items-center justify-center rounded-full bg-[#8a1010] text-white font-black border-2 border-white/90"
+                className="flex items-center justify-center rounded-full bg-[#8a1010] text-white font-black border border-white/90"
                 style={{
-                  width: "clamp(28px, 2.6vw, 42px)",
-                  height: "clamp(28px, 2.6vw, 42px)",
-                  fontSize: "clamp(15px, 1.4vw, 22px)",
-                  boxShadow:
-                    "0 2px 5px rgba(0,0,0,0.35), inset 0 1px 1px rgba(255,255,255,0.3)",
+                  width: "clamp(24px, 2.8vw, 38px)",
+                  height: "clamp(24px, 2.8vw, 38px)",
+                  fontSize: "clamp(13px, 1.5vw, 20px)",
                 }}
               >
                 3
@@ -212,7 +204,7 @@ export default function AkadanPage() {
               <span
                 className="text-[#241a10] font-extrabold"
                 style={{
-                  fontSize: "clamp(19px, 1.85vw, 30px)",
+                  fontSize: "clamp(18px, 2vw, 28px)",
                   letterSpacing: "0.14em",
                   textIndent: "0.14em",
                 }}
@@ -221,10 +213,9 @@ export default function AkadanPage() {
               </span>
             </div>
             <p
-              className="mt-[10px] text-[#3a2c1d] font-medium leading-[1.85]"
+              className="mt-[8px] text-[#3a2c1d] font-medium leading-[1.7]"
               style={{
-                fontSize: "clamp(11px, 0.95vw, 16px)",
-                letterSpacing: "0.04em",
+                fontSize: "clamp(10px, 1.1vw, 15px)",
               }}
             >
               やるときは全力でやる。
@@ -235,18 +226,17 @@ export default function AkadanPage() {
             </p>
           </div>
 
-          {/* 一番下：まとめの一文（説明文の下〜人物シルエットの頭上の余白に自然配置） */}
+          {/* 一番下：まとめの一文 */}
           <p
-            className="absolute font-extrabold text-[#fdf3dc]"
+            className="absolute font-extrabold text-[#fdf3dc] text-center"
             style={{
-              top: "70%",
+              bottom: "12%", /* シルエットの手前・最下部のバランス位置 */
               left: "50%",
               transform: "translateX(-50%)",
-              fontSize: "clamp(16px, 1.55vw, 25px)",
+              fontSize: "clamp(14px, 1.8vw, 24px)",
               letterSpacing: "0.08em",
               whiteSpace: "nowrap",
-              textShadow:
-                "0 1px 2px rgba(0,0,0,0.9), 0 2px 8px rgba(0,0,0,0.6)",
+              textShadow: "0 2px 4px rgba(0,0,0,0.8)",
             }}
           >
             3つを大切にして、和気藹々をつくり上げよう！
@@ -254,15 +244,17 @@ export default function AkadanPage() {
         </div>
       </div>
 
-      {/* スマホ版 */}
-      <div className="absolute inset-0 flex items-center justify-center md:hidden z-10">
+      {/* =================================================================
+          スマホ版 (md未満)
+          ================================================================= */}
+      <div className="block md:hidden w-full relative">
         <Image
           src="/img/sannkajyou.png"
           alt="赤団 三箇条"
-          width={700}
-          height={1200}
+          width={720}
+          height={1280}
           priority
-          className="w-full h-full object-cover"
+          className="w-full h-auto object-cover"
         />
       </div>
     </div>
