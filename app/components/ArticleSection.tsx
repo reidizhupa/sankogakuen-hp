@@ -119,7 +119,7 @@ export default function ShopMembers() {
       </div>
 
       {/* 下部のサブ見出しテキストグリッド */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16 border-t border-gray-100 pt-12 text-center">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 border-t border-gray-100 pt-12 text-center">
         {/* 📣 応援 */}
         <div className="space-y-2 flex flex-col items-center">
           <h4 className="font-bold text-sm text-gray-900 border-l-4 border-red-600 pl-3">
@@ -162,15 +162,6 @@ export default function ShopMembers() {
               </span>
             </div>
           </Link>
-        </div>
-        {/* 🔒 サブ見出し */}
-        <div className="space-y-2 flex flex-col items-center">
-          <h4 className="font-bold text-sm text-gray-900 border-l-4 border-red-600 pl-3">
-            🔒 サブ見出し
-          </h4>
-          <p className="text-gray-500 text-xs leading-relaxed">
-            主導したいことを自由に書く本文テキスト。
-          </p>
         </div>
         {/* 📅 日付 */}
         <div className="space-y-2 flex flex-col items-center">
