@@ -48,7 +48,7 @@ export default function Home() {
         <ScrollReveal direction="up">
           <div className="max-w-[1000px] my-[60px] mx-auto px-5">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-              <div className="rounded border border-[#e0e0e0] overflow-hidden aspect-[4/3]">
+              <div className="rounded overflow-hidden aspect-[4/3]">
                 <GoogleMap />
               </div>
               <div>
